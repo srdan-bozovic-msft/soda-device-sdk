@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Client\Consumer.cs" />
+    <Compile Include="Client\Converters\DefaultDateConverter.cs" />
     <Compile Include="Client\Converters\StringTypeConverter.cs" />
     <Compile Include="Client\Converters\LongConverter.cs" />
     <Compile Include="Client\Converters\IntegerConverter.cs" />

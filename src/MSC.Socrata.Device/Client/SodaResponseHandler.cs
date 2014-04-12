@@ -104,8 +104,8 @@ namespace MSC.Socrata.Device.Client
                 {
                     try
                     {
-                        var fields = new JArray(fieldsJson);
-                        var types = new JArray(typesJson);
+                        var fields = JArray.Parse(fieldsJson);
+                        var types = JArray.Parse(typesJson);
                         for (int i = 0; i < fields.Count; i++)
                         {
                             var field = fields[i];

@@ -77,7 +77,7 @@ namespace MSC.Socrata.Device.Client
             {
                 var field = fieldTypeEntry.Key;
                 var type = fieldTypeEntry.Value;
-                var targetField = _fieldMappings[field];
+                var targetField = _fieldMappings.ContainsKey(field) ? _fieldMappings[field] : null;
                 if(targetField != null)
                 {
                     var jsonValue = json[field];

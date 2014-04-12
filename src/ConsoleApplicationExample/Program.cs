@@ -11,9 +11,10 @@ namespace ConsoleApplicationExample
     {
         static void Main(string[] args)
         {
-            var consumer = new Consumer("soda.demo.socrata.com", "YOUR_TOKEN");
+            //var consumer = new Consumer("soda.demo.socrata.com", "YOUR_TOKEN");
+            var consumer = new Consumer("soda.demo.socrata.com");
 
-            var handle = consumer.GetObjectAsync<Earthquake>("earthquake");
+            var handle = consumer.GetObjectAsync<Earthquake>("earthquakes");
             handle.Wait();
             var result = handle.Result;
             Console.ReadLine();

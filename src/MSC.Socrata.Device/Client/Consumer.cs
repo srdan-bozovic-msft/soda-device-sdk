@@ -28,10 +28,11 @@ namespace MSC.Socrata.Device.Client
                 var response = await _client.GetAsync(getAbsoluteUrl(url));
                 if(response.IsSuccessStatusCode)
                 {
+                    var content = await response.Content.ReadAsStringAsync();
                     responseHandler.OnSuccess(
                         (int)response.StatusCode, 
                         response.Headers, 
-                        JObject.Parse(await response.Content.ReadAsStringAsync())
+                        JArray.Parse(content)
                         );
                 }
                 else
