@@ -19,19 +19,52 @@ namespace MSC.Socrata.Device.Client
 
         public DataTypesMapper DataTypesMapper { get; set; }
 
-        private async Task<T> GetAsync<T>(string url, SodaResponseHandler<T> responseHandler)
+        private async Task<Response<T>> GetAsync<T>(string url, SodaResponseHandler<T> responseHandler)
         {
+            HttpResponseMessage response = null;
             //Log.d("socrata", String.format("Consumer : %s params: %s", url, params));
-            //client.get(getAbsoluteUrl(url), params, responseHandler);
             try
             {
-                var response = await _client.GetAsync(getAbsoluteUrl(url));
+                response = await _client.GetAsync(GetAbsoluteUrl(url)).ConfigureAwait(false);
                 if(response.IsSuccessStatusCode)
                 {
-                    var content = await response.Content.ReadAsStringAsync();
+                    var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                     responseHandler.OnSuccess(
-                        (int)response.StatusCode, 
+                        (int)response.StatusCode,
                         response.Headers, 
+                        JObject.Parse(content)
+                        );
+                }
+                else
+                {
+                    responseHandler.OnFailure(
+                        (int)response.StatusCode,
+                        response.Headers,
+                        null,
+                        JObject.Parse(string.Format("{{'code':'{0}','message':'{1}','data':null}}",(int)response.StatusCode,response.ReasonPhrase))
+                        );
+                }
+            }
+            catch(Exception xcp)
+            {
+                responseHandler.OnFailure(0, response != null ? response.Headers : null, xcp, null);
+            }
+            return responseHandler.Response;
+        }
+
+        private async Task<Response<T[]>> GetArrayAsync<T>(string url, SodaResponseHandler<T[]> responseHandler)
+        {
+            //Log.d("socrata", String.format("Consumer : %s params: %s", url, params));
+            HttpResponseMessage response = null;
+            try
+            {
+                response = await _client.GetAsync(GetAbsoluteUrl(url)).ConfigureAwait(false);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    responseHandler.OnSuccess(
+                        (int)response.StatusCode,
+                        response.Headers,
                         JArray.Parse(content)
                         );
                 }
@@ -39,19 +72,20 @@ namespace MSC.Socrata.Device.Client
                 {
                     responseHandler.OnFailure(
                         (int)response.StatusCode,
+                        response.Headers,
                         null,
-                        JObject.Parse("{'code':'','message':'','data':null}")
+                        JObject.Parse(string.Format("{{'code':'{0}','message':'{1}','data':null}}",(int)response.StatusCode,response.ReasonPhrase))
                         );
                 }
-                return responseHandler.Response.Entity;
             }
-            catch
+            catch (Exception xcp)
             {
-                return default(T);
+                responseHandler.OnFailure(0, response != null ? response.Headers : null, xcp, null);
             }
+            return responseHandler.Response;
         }
 
-        private string getAbsoluteUrl(string relativeUrl) {
+        private string GetAbsoluteUrl(string relativeUrl) {
             return "https://" + Domain + "/resource" + relativeUrl;
         }
 
@@ -68,16 +102,16 @@ namespace MSC.Socrata.Device.Client
             _client.DefaultRequestHeaders.Add(TOKEN_HEADER, token);
         }
 
-        public async Task<T> GetObjectAsync<T>(string dataset, string id)
+        public async Task<Response<T>> GetObjectAsync<T>(string dataset, string id)
         {
             return await GetAsync<T>(string.Format("/{0}/{1}", dataset, id)
-                , new SodaResponseHandler<T>(typeof(T), DataTypesMapper));
+                , new SodaResponseHandler<T>(DataTypesMapper)).ConfigureAwait(false);
         }
 
-        public async Task<T> GetObjectAsync<T>(string dataset)
+        public async Task<Response<T[]>> GetObjectsAsync<T>(string dataset)
         {
-            return await GetAsync<T>(string.Format("/{0}", dataset)
-                , new SodaResponseHandler<T>(typeof(T), DataTypesMapper));
+            return await GetArrayAsync<T>(string.Format("/{0}", dataset)
+                , new SodaResponseHandler<T[]>(DataTypesMapper)).ConfigureAwait(false);
         }
 
         //public <T> void getObjects(String dataset, String query, Class<?> mapping, Callback<T> callback) {

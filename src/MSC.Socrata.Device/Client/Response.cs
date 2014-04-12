@@ -8,6 +8,10 @@ namespace MSC.Socrata.Device.Client
 {
     public class Response<T>
     {
+        public static implicit operator T(Response<T> response)
+        {
+            return response.HasEntity ? response.Entity : default(T);
+        }
         public int Status { get; internal set; }
 
         public IDictionary<string, string> Headers { get; internal set; }

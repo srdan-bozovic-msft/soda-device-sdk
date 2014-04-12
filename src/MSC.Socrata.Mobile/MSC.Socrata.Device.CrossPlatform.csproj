@@ -43,6 +43,9 @@
     <Compile Include="..\MSC.Socrata.Device\Client\Converters\DateTimeStampConverter.cs">
       <Link>Client\Converters\DateTimeStampConverter.cs</Link>
     </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Client\Converters\DefaultDateConverter.cs">
+      <Link>Client\Converters\DefaultDateConverter.cs</Link>
+    </Compile>
     <Compile Include="..\MSC.Socrata.Device\Client\Converters\DoubleConverter.cs">
       <Link>Client\Converters\DoubleConverter.cs</Link>
     </Compile>

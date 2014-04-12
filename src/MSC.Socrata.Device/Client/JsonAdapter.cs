@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -54,14 +55,14 @@ namespace MSC.Socrata.Device.Client
             _fieldMappings = _propertyMappings[_target];
         }
 
-        public List<object> FromJsonArray(JArray items)
+        public object FromJsonArray(JArray items)
         {
-            var result = new List<object>(items.Count);
+            var result = Array.CreateInstance(_target,items.Count);
             for (int i = 0; i < items.Count; i++)
             {
                 var jsonObject = items[i];
                 var item = FromJsonObject(jsonObject);
-                result.Add(item);
+                result.SetValue(item, i);    
             }
             return result;
         }

@@ -1,10 +1,12 @@
 ﻿using MSC.Socrata.Device.Client;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,8 +22,10 @@ namespace MSC.Socrata.Device.Client
 
         private JsonAdapter _jsonAdapter;
 
-        public SodaResponseHandler(Type target, DataTypesMapper dataTypesMapper)
+        public SodaResponseHandler(DataTypesMapper dataTypesMapper)
         {
+            var type = typeof(T);
+            var target = type.IsArray ? type.GetElementType() : type;
             _jsonAdapter = new JsonAdapter(target, dataTypesMapper);
             Response = new Response<T>();
         }
@@ -51,11 +55,11 @@ namespace MSC.Socrata.Device.Client
             Response.Json = jsonArray;
             if (jsonArray != null)
             {
-                T entity;
+                T entity = default(T);
                 try
                 {
 
-                    entity = (T)(object)_jsonAdapter.FromJsonArray(jsonArray);
+                    entity = (T)_jsonAdapter.FromJsonArray(jsonArray);
                 }
                 catch (Exception xcp)
                 {
@@ -65,9 +69,9 @@ namespace MSC.Socrata.Device.Client
             }
         }
 
-        public void OnFailure(int statusCode, Exception xcp, JObject jsonObject)
+        public void OnFailure(int statusCode, HttpResponseHeaders headers, Exception xcp, JObject jsonObject)
         {
-            parseHeaders(statusCode, null);
+            parseHeaders(statusCode, headers);
             var responseError = new ResponseError(
                     jsonObject.Value<string>("code"),
                     jsonObject.Value<string>("message"),
@@ -76,15 +80,6 @@ namespace MSC.Socrata.Device.Client
             responseError.Error = xcp;
             Response.Error = responseError;
             Response.Json = jsonObject;
-        }
-
-        public void OnFailure(int statusCode, Exception xcp, JArray jsonArray)
-        {
-            parseHeaders(statusCode, null);
-            var responseError = new ResponseError();
-            responseError.Error = xcp;
-            Response.Error = responseError;
-            Response.Json = jsonArray;
         }
 
         private void parseHeaders(int status, HttpResponseHeaders hds)
@@ -98,8 +93,8 @@ namespace MSC.Socrata.Device.Client
                     headers.Add(header.Key, string.Join(" ", header.Value.ToArray()));
                 }
                 Response.Headers = headers;
-                var fieldsJson = headers[FIELDS_HEADER];
-                var typesJson = headers[TYPES_HEADER];
+                var fieldsJson = headers.ContainsKey(FIELDS_HEADER) ? headers[FIELDS_HEADER] : null;
+                var typesJson = headers.ContainsKey(TYPES_HEADER) ? headers[TYPES_HEADER] : null;
                 if (fieldsJson != null && typesJson != null)
                 {
                     try
