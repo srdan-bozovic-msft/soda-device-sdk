@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MSC.Socrata.Device\MSC.Socrata.Device.csproj">
+    <ProjectReference Include="..\MSC.Socrata.Device.Windows\MSC.Socrata.Device.Windows.csproj">
       <Project>{be0aa874-2a3e-454e-bad1-e50d8004ef30}</Project>
-      <Name>MSC.Socrata.Device</Name>
+      <Name>MSC.Socrata.Device.Windows</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

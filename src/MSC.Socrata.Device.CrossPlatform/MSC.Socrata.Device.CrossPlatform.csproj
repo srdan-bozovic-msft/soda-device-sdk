@@ -34,112 +34,112 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\MSC.Socrata.Device\Client\Consumer.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Consumer.cs">
       <Link>Client\Consumer.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\BooleanConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\BooleanConverter.cs">
       <Link>Client\Converters\BooleanConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\DateTimeStampConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\DateTimeStampConverter.cs">
       <Link>Client\Converters\DateTimeStampConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\DefaultDateConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\DefaultDateConverter.cs">
       <Link>Client\Converters\DefaultDateConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\DoubleConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\DoubleConverter.cs">
       <Link>Client\Converters\DoubleConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\EmbeddedSodaEntityConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\EmbeddedSodaEntityConverter.cs">
       <Link>Client\Converters\EmbeddedSodaEntityConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\FormattedDateConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\FormattedDateConverter.cs">
       <Link>Client\Converters\FormattedDateConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\IDataTypeConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\IDataTypeConverter.cs">
       <Link>Client\Converters\IDataTypeConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\IntegerConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\IntegerConverter.cs">
       <Link>Client\Converters\IntegerConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\LongConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\LongConverter.cs">
       <Link>Client\Converters\LongConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\PassthruConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\PassthruConverter.cs">
       <Link>Client\Converters\PassthruConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Converters\StringTypeConverter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Converters\StringTypeConverter.cs">
       <Link>Client\Converters\StringTypeConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\DataTypesMapper.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\DataTypesMapper.cs">
       <Link>Client\DataTypesMapper.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\JsonAdapter.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\JsonAdapter.cs">
       <Link>Client\JsonAdapter.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\Response.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\Response.cs">
       <Link>Client\Response.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\ResponseError.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\ResponseError.cs">
       <Link>Client\ResponseError.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\SodaEntityAttribute.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\SodaEntityAttribute.cs">
       <Link>Client\SodaEntityAttribute.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\SodaFieldAttribute.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\SodaFieldAttribute.cs">
       <Link>Client\SodaFieldAttribute.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\SodaResponseHandler.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\SodaResponseHandler.cs">
       <Link>Client\SodaResponseHandler.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Client\SodaTypeConversionException.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Client\SodaTypeConversionException.cs">
       <Link>Client\SodaTypeConversionException.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\BuildCapable.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Clauses\BuildCapable.cs">
       <Link>Soql\Clauses\BuildCapable.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\Expression.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Clauses\Expression.cs">
       <Link>Soql\Clauses\Expression.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\GroupBy.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Clauses\GroupBy.cs">
       <Link>Soql\Clauses\GroupBy.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\ImmutableClause.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Clauses\ImmutableClause.cs">
       <Link>Soql\Clauses\ImmutableClause.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\Limit.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Clauses\Limit.cs">
       <Link>Soql\Clauses\Limit.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\Offset.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Clauses\Offset.cs">
       <Link>Soql\Clauses\Offset.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\OrderBy.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Clauses\OrderBy.cs">
       <Link>Soql\Clauses\OrderBy.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\OrderDirection.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Clauses\OrderDirection.cs">
       <Link>Soql\Clauses\OrderDirection.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\Select.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Clauses\Select.cs">
       <Link>Soql\Clauses\Select.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\Where.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Clauses\Where.cs">
       <Link>Soql\Clauses\Where.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Datatypes\Document.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Datatypes\Document.cs">
       <Link>Soql\Datatypes\Document.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Datatypes\GeoBox.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Datatypes\GeoBox.cs">
       <Link>Soql\Datatypes\GeoBox.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Datatypes\Location.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Datatypes\Location.cs">
       <Link>Soql\Datatypes\Location.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Datatypes\Phone.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Datatypes\Phone.cs">
       <Link>Soql\Datatypes\Phone.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Datatypes\Url.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Datatypes\Url.cs">
       <Link>Soql\Datatypes\Url.cs</Link>
     </Compile>
-    <Compile Include="..\MSC.Socrata.Device\Soql\Query.cs">
+    <Compile Include="..\MSC.Socrata.Device.Windows\Soql\Query.cs">
       <Link>Soql\Query.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
