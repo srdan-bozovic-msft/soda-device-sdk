@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using MSC.Socrata.Device.Soql;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -104,33 +105,31 @@ namespace MSC.Socrata.Device.Client
 
         public async Task<Response<T>> GetObjectAsync<T>(string dataset, string id)
         {
-            return await GetAsync<T>(string.Format("/{0}/{1}", dataset, id)
-                , new SodaResponseHandler<T>(DataTypesMapper)).ConfigureAwait(false);
+            return await GetAsync<T>(string.Format("/{0}/{1}", dataset, id),
+                new SodaResponseHandler<T>(DataTypesMapper)).ConfigureAwait(false);
         }
 
         public async Task<Response<T[]>> GetObjectsAsync<T>(string dataset)
         {
-            return await GetArrayAsync<T>(string.Format("/{0}", dataset)
-                , new SodaResponseHandler<T[]>(DataTypesMapper)).ConfigureAwait(false);
+            return await GetArrayAsync<T>(string.Format("/{0}", dataset),
+                new SodaResponseHandler<T[]>(DataTypesMapper)).ConfigureAwait(false);
         }
 
-        //public <T> void getObjects(String dataset, String query, Class<?> mapping, Callback<T> callback) {
-        //    SodaCallbackResponseHandler<T> handler = new SodaCallbackResponseHandler<T>(mapping, callback, dataTypesMapper);
-        //    RequestParams params = new RequestParams();
-        //    params.put("$query", query);
-        //    get(String.format("/%s", dataset), params, handler);
-        //}
+        public async Task<Response<T[]>> GetObjectsAsync<T>(string dataset, string query)
+        {
+            return await GetArrayAsync<T>(string.Format("/{0}?$query={1}", dataset, query),
+                new SodaResponseHandler<T[]>(DataTypesMapper)).ConfigureAwait(false);
+        }
     
-        //public <T> void getObjects(Query query, Callback<T> callback) {
-        //    getObjects(query.getDataset(), query.build(), query.getMapping(), callback);
-        //}
+        public async Task<Response<T[]>> GetObjectsAsync<T>(Query<T> query)
+        {
+            return await GetObjectsAsync<T>(query.Dataset, query.Build());
+        }
     
-        //public <T> void searchObjects(String dataset, String keywords, Class<?> mapping, Callback<T> callback) {
-        //    SodaCallbackResponseHandler<T> handler = new SodaCallbackResponseHandler<T>(mapping, callback, dataTypesMapper);
-        //    RequestParams params = new RequestParams();
-        //    params.put("$s", keywords);
-        //    get(String.format("/%s", dataset), params, handler);
-        //}
-
+        public async Task<Response<T[]>> SearchObjectsAsync<T>(string dataset, string keywords)
+        {
+            return await GetArrayAsync<T>(string.Format("/{0}?$s=", dataset, keywords),
+                new SodaResponseHandler<T[]>(DataTypesMapper)).ConfigureAwait(false);
+        }
     }
 }

@@ -57,7 +57,22 @@
     <Compile Include="Client\SodaResponseHandler.cs" />
     <Compile Include="Client\SodaTypeConversionException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Soql\Clauses\Expression.cs" />
+    <Compile Include="Soql\Clauses\GroupBy.cs" />
+    <Compile Include="Soql\Clauses\BuildCapable.cs" />
+    <Compile Include="Soql\Clauses\ImmutableClause.cs" />
+    <Compile Include="Soql\Clauses\Limit.cs" />
+    <Compile Include="Soql\Clauses\Offset.cs" />
+    <Compile Include="Soql\Clauses\OrderBy.cs" />
+    <Compile Include="Soql\Clauses\OrderDirection.cs" />
+    <Compile Include="Soql\Clauses\Select.cs" />
+    <Compile Include="Soql\Clauses\Where.cs" />
+    <Compile Include="Soql\Datatypes\Document.cs" />
+    <Compile Include="Soql\Datatypes\GeoBox.cs" />
     <Compile Include="Soql\Datatypes\Location.cs" />
+    <Compile Include="Soql\Datatypes\Phone.cs" />
+    <Compile Include="Soql\Datatypes\Url.cs" />
+    <Compile Include="Soql\Query.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

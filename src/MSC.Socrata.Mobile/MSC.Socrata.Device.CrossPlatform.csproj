@@ -94,8 +94,53 @@
     <Compile Include="..\MSC.Socrata.Device\Client\SodaTypeConversionException.cs">
       <Link>Client\SodaTypeConversionException.cs</Link>
     </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\BuildCapable.cs">
+      <Link>Soql\Clauses\BuildCapable.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\Expression.cs">
+      <Link>Soql\Clauses\Expression.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\GroupBy.cs">
+      <Link>Soql\Clauses\GroupBy.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\ImmutableClause.cs">
+      <Link>Soql\Clauses\ImmutableClause.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\Limit.cs">
+      <Link>Soql\Clauses\Limit.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\Offset.cs">
+      <Link>Soql\Clauses\Offset.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\OrderBy.cs">
+      <Link>Soql\Clauses\OrderBy.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\OrderDirection.cs">
+      <Link>Soql\Clauses\OrderDirection.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\Select.cs">
+      <Link>Soql\Clauses\Select.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Clauses\Where.cs">
+      <Link>Soql\Clauses\Where.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Datatypes\Document.cs">
+      <Link>Soql\Datatypes\Document.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Datatypes\GeoBox.cs">
+      <Link>Soql\Datatypes\GeoBox.cs</Link>
+    </Compile>
     <Compile Include="..\MSC.Socrata.Device\Soql\Datatypes\Location.cs">
       <Link>Soql\Datatypes\Location.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Datatypes\Phone.cs">
+      <Link>Soql\Datatypes\Phone.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Datatypes\Url.cs">
+      <Link>Soql\Datatypes\Url.cs</Link>
+    </Compile>
+    <Compile Include="..\MSC.Socrata.Device\Soql\Query.cs">
+      <Link>Soql\Query.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
