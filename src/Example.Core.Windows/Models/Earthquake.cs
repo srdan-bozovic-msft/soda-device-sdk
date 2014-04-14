@@ -1,13 +1,12 @@
-﻿using System;
+﻿using MSC.Socrata.Device.Client;
+using MSC.Socrata.Device.Soql.Datatypes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MSC.Socrata.Device;
-using MSC.Socrata.Device.Client;
-using MSC.Socrata.Device.Soql.Datatypes;
 
-namespace ConsoleApplicationExample
+namespace Example.Core.Models
 {
     [SodaEntity]
     public class Earthquake
