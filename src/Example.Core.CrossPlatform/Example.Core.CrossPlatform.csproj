@@ -44,6 +44,9 @@
     <Compile Include="..\Example.Core.Windows\Models\Earthquake.cs">
       <Link>Models\Earthquake.cs</Link>
     </Compile>
+    <Compile Include="..\Example.Core.Windows\Models\EarthquakeMagnitudeClass.cs">
+      <Link>Models\EarthquakeMagnitudeClass.cs</Link>
+    </Compile>
     <Compile Include="..\Example.Core.Windows\Services\IUSGSEarthquakeReportsService.cs">
       <Link>Services\IUSGSEarthquakeReportsService.cs</Link>
     </Compile>

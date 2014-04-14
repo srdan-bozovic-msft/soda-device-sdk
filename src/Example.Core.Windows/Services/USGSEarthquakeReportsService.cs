@@ -19,6 +19,18 @@ namespace Example.Core.Services
             _consumer = new Consumer("soda.demo.socrata.com");
         }
 
+        public EarthquakeMagnitudeClass[] GetEarthquakeMagnitudeClasses()
+        {
+            return new[] {
+                new EarthquakeMagnitudeClass("Great",8,double.MaxValue),
+                new EarthquakeMagnitudeClass("Major",7,8),
+                new EarthquakeMagnitudeClass("Strong",6,7),
+                new EarthquakeMagnitudeClass("Moderate",5,6),
+                new EarthquakeMagnitudeClass("Light",4,5),
+                new EarthquakeMagnitudeClass("Minor",3,4),
+            };
+        }
+
         public async Task<Earthquake> GetEarthquakeByIdAsync(string id)
         {
             var response = await _consumer.GetObjectAsync<Earthquake>(DataSet, id);

@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Models\Earthquake.cs" />
+    <Compile Include="Models\EarthquakeMagnitudeClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\USGSEarthquakeReportsService.cs" />
     <Compile Include="Services\IUSGSEarthquakeReportsService.cs" />
