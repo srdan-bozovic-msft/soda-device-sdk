@@ -16,6 +16,7 @@
 		    IsSourceGrouped="true"
 		    ItemsPath="Items"
 		/>
+        <common:StringToCharConverter x:Key="StringToCharConverter"/>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Name="LayoutRoot">
@@ -50,15 +51,13 @@
                             </Grid.ColumnDefinitions>
                             <Grid>
                                 <Rectangle Fill="#ff67b8de" Height="100" Width="30"/>
-                                <!--<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Margin="0,-9,0,0" Visibility="{Binding IsTrackThreeChars, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <TextBlock Text="{Binding TrackCode, Converter={StaticResource StringToCharConverter}, ConverterParameter=0}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight"/>
-                                    <TextBlock Text="{Binding TrackCode, Converter={StaticResource StringToCharConverter}, ConverterParameter=1}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight" Margin="0,-3,0,0"/>
-                                    <TextBlock Text="{Binding TrackCode, Converter={StaticResource StringToCharConverter}, ConverterParameter=2}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight" Margin="0,-3,0,0"/>
+                                    
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Margin="0,-9,0,0">
+                                    <TextBlock Text="{Binding Magnitude, Converter={StaticResource StringToCharConverter}, ConverterParameter=0}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight"/>
+                                    <TextBlock Text="{Binding Magnitude, Converter={StaticResource StringToCharConverter}, ConverterParameter=1}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight" Margin="0,-15,0,0"/>
+                                    <TextBlock Text="{Binding Magnitude, Converter={StaticResource StringToCharConverter}, ConverterParameter=2}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight" Margin="0,-6,0,0"/>
+                                    <TextBlock Text="{Binding Magnitude, Converter={StaticResource StringToCharConverter}, ConverterParameter=3}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight" Margin="0,-3,0,0"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Margin="0,-9,0,0" Visibility="{Binding IsTrackTwoChars, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <TextBlock Text="{Binding TrackCode, Converter={StaticResource StringToCharConverter}, ConverterParameter=0}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight"/>
-                                    <TextBlock Text="{Binding TrackCode, Converter={StaticResource StringToCharConverter}, ConverterParameter=1}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight" Margin="0,-3,0,0"/>
-                                </StackPanel>-->
                             </Grid>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
