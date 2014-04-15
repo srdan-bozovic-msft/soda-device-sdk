@@ -12,7 +12,7 @@ namespace Example.Core.Models
         public double LowerBound { get; private set; }
         public double UpperBound { get; private set; }
 
-        public EarthquakeMagnitudeClass(string name, double upperBound, double lowerBound)
+        public EarthquakeMagnitudeClass(string name, double lowerBound, double upperBound)
         {
             Name = name;
             LowerBound = lowerBound;

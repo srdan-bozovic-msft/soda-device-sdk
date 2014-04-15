@@ -16,6 +16,7 @@ namespace Example.Core.ViewModels
 
         public EarthquakeGroupViewModel(EarthquakeMagnitudeClass model)
         {
+            _model = model;
             Items = new ObservableCollection<EarthquakeItemViewModel>();
         }
     }
