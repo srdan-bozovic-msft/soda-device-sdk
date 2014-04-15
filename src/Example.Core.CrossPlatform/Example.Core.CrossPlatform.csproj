@@ -53,6 +53,15 @@
     <Compile Include="..\Example.Core.Windows\Services\USGSEarthquakeReportsService.cs">
       <Link>Services\USGSEarthquakeReportsService.cs</Link>
     </Compile>
+    <Compile Include="..\Example.Core.Windows\ViewModels\EarthquakeGroupViewModel.cs">
+      <Link>ViewModels\EarthquakeGroupViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Example.Core.Windows\ViewModels\EarthquakeItemViewModel.cs">
+      <Link>ViewModels\EarthquakeItemViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Example.Core.Windows\ViewModels\HomePageViewModel.cs">
+      <Link>ViewModels\HomePageViewModel.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,9 +75,7 @@
       <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.Localization.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MSC.Socrata.Device.CrossPlatform\MSC.Socrata.Device.CrossPlatform.csproj">
       <Project>{d72f8285-3977-43af-9c9f-a0abc0061f40}</Project>

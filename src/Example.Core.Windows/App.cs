@@ -1,4 +1,7 @@
-﻿using Cirrious.MvvmCross.ViewModels;
+﻿using Cirrious.CrossCore;
+using Cirrious.MvvmCross.ViewModels;
+using Example.Core.Services;
+using Example.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +14,8 @@ namespace Example.Core
     {
         public App()
         {
-            //Mvx.RegisterType<ICalculation, Calculation>();
-            //RegisterAppStart<TipViewModel>();
+            Mvx.RegisterType<IUSGSEarthquakeReportsService, USGSEarthquakeReportsService>();
+            RegisterAppStart<HomePageViewModel>();
         }
     }
 }
