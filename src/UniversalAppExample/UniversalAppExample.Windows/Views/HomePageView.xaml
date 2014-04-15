@@ -9,7 +9,146 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Hello World" FontSize="120"/>
+    <Page.Resources>
+        <CollectionViewSource
+		    x:Name="groupedItemsViewSource"
+		    Source="{Binding EarthquakeGroups}"
+		    IsSourceGrouped="true"
+		    ItemsPath="Items"
+		/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Name="LayoutRoot">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--<Rectangle Canvas.ZIndex="1" Grid.RowSpan="2" Fill="#77000000" Visibility="{Binding IsModal, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
+
+        <Grid Grid.Row="1">
+
+            <!--<Grid.Background>
+                <ImageBrush ImageSource="/Assets/Background.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>-->
+
+            <GridView VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                    x:Name="sessionsItemGridView"
+                    Padding="116,37,40,46"
+                    AutomationProperties.AutomationId="ItemGridView"
+                    AutomationProperties.Name="Grouped Items"
+                    ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
+                    SelectionMode="None"
+                   >
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}" Width="400" Height="100">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid>
+                                <Rectangle Fill="#ff67b8de" Height="100" Width="30"/>
+                                <!--<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Margin="0,-9,0,0" Visibility="{Binding IsTrackThreeChars, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <TextBlock Text="{Binding TrackCode, Converter={StaticResource StringToCharConverter}, ConverterParameter=0}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight"/>
+                                    <TextBlock Text="{Binding TrackCode, Converter={StaticResource StringToCharConverter}, ConverterParameter=1}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight" Margin="0,-3,0,0"/>
+                                    <TextBlock Text="{Binding TrackCode, Converter={StaticResource StringToCharConverter}, ConverterParameter=2}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight" Margin="0,-3,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Margin="0,-9,0,0" Visibility="{Binding IsTrackTwoChars, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <TextBlock Text="{Binding TrackCode, Converter={StaticResource StringToCharConverter}, ConverterParameter=0}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight"/>
+                                    <TextBlock Text="{Binding TrackCode, Converter={StaticResource StringToCharConverter}, ConverterParameter=1}" TextAlignment="Center" FontSize="20" FontWeight="SemiLight" Margin="0,-3,0,0"/>
+                                </StackPanel>-->
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{Binding Region}" TextWrapping="Wrap" TextTrimming="WordEllipsis" Margin="10,5,10,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="16" />
+                                <TextBlock Grid.Row="1" Text="{Binding DateTime}" Foreground="#77ffffff"  TextWrapping="Wrap" TextTrimming="WordEllipsis" Margin="10,15,5,10" FontWeight="SemiLight"/>
+                            </Grid>     
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid GroupPadding="0,0,70,70"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+                <GridView.ItemContainerStyle>
+                    <Style
+        TargetType="GridViewItem">
+                        <!-- note - for GridView you should specify GridViewItem, for ListBox - ListBoxItem, etc. -->
+                        <Setter
+            Property="Height"
+            Value="100" />
+                        <!-- this is where you can specify the size of your ListView items -->
+                        <Setter
+            Property="Width"
+            Value="400" />
+                    </Style>
+                </GridView.ItemContainerStyle>
+
+                <GridView.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,2">
+                                    <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" 
+                                    AutomationProperties.Name="Group Title"
+                                    Style="{StaticResource TextBlockButtonStyle}" >
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Group}" Margin="0,0,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontSize="40" Foreground="#67b8de"/>
+                                        </StackPanel>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </GridView.GroupStyle>
+            </GridView>
+        </Grid>
+
+
+        <Grid Background="#67b8de" x:Name="landscapeGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ProgressRing Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" IsActive="{Binding IsSynchronizing}" Width="50" Height="50" Foreground="White"/>
+            <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Soda Device SDK Universal App Example" Style="{StaticResource SubheaderTextBlockStyle}" />
+        </Grid>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="DefaultLayout">
+                    <Storyboard>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Portrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="landscapeGrid" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitlePortrait" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Narrow">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="landscapeGrid" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitlePortrait" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </common:LayoutAwarePage>

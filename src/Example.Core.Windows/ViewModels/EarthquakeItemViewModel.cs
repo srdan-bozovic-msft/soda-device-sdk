@@ -14,5 +14,21 @@ namespace Example.Core.ViewModels
         {
             _model = model;
         }
+
+        public string Region
+        {
+            get { return _model.Region; }
+        }
+
+        public string DateTime
+        {
+            get { return _model.DateTime.ToString("yyyy-MM-dd'T'HH:mm:s"); }
+        }
+
+        public string Magnitude
+        {
+            get { return string.Format("{0:.00}", _model.Magnitude); }
+        }
+
     }
 }
