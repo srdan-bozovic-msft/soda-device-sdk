@@ -61,11 +61,11 @@
                             </Grid>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <TextBlock Text="{Binding Region}" TextWrapping="Wrap" TextTrimming="WordEllipsis" Margin="10,5,10,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="16" />
-                                <TextBlock Grid.Row="1" Text="{Binding DateTime}" Foreground="#77ffffff"  TextWrapping="Wrap" TextTrimming="WordEllipsis" Margin="10,15,5,10" FontWeight="SemiLight"/>
+                                <TextBlock Grid.Row="1" Text="{Binding DateTime}" Foreground="#BDC0C5"  TextWrapping="Wrap" TextTrimming="WordEllipsis" Margin="10,5,10,0" FontWeight="SemiLight"/>
                             </Grid>     
                         </Grid>
                     </DataTemplate>
