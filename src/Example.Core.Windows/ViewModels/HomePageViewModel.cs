@@ -71,5 +71,13 @@ namespace Example.Core.ViewModels
             IsSynchronizing = false;
             base.Start();
         }
+
+        public string Test
+        {
+            get
+            {
+                return "Simple binding test :)";
+            }
+        }
     }
 }
