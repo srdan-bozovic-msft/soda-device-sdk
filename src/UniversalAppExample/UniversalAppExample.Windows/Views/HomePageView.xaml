@@ -14,7 +14,7 @@
 		    x:Name="groupedItemsViewSource"
 		    Source="{Binding EarthquakeGroups}"
 		    IsSourceGrouped="true"
-		    ItemsPath="Items"
+		   
 		/>
         <common:StringToCharConverter x:Key="StringToCharConverter"/>
     </Page.Resources>
@@ -98,7 +98,7 @@
                                     AutomationProperties.Name="Group Title"
                                     Style="{StaticResource TextBlockButtonStyle}" >
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Group}" Margin="0,0,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontSize="40" Foreground="#67b8de"/>
+                                            <TextBlock Text="{Binding Key}" Margin="0,0,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontSize="40" Foreground="#67b8de"/>
                                         </StackPanel>
                                     </Button>
                                 </Grid>

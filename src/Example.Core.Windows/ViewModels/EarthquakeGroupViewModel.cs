@@ -8,16 +8,14 @@ using System.Threading.Tasks;
 
 namespace Example.Core.ViewModels
 {
-    public class EarthquakeGroupViewModel
+    public class EarthquakeGroupViewModel : List<EarthquakeItemViewModel>
     {
         private EarthquakeMagnitudeClass _model;
-        public string Group { get { return _model.Name; } }
-        public ObservableCollection<EarthquakeItemViewModel> Items { get; private set; }
+        public string Key { get { return _model.Name; } }
 
         public EarthquakeGroupViewModel(EarthquakeMagnitudeClass model)
         {
             _model = model;
-            Items = new ObservableCollection<EarthquakeItemViewModel>();
         }
     }
 }

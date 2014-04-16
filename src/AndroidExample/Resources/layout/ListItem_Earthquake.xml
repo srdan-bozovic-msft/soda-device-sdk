@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:local="http://schemas.android.com/apk/res-auto"  
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  android:background="@color/transparent">
+  <LinearLayout
+    android:id="@+id/LeftPanel"
+    android:layout_width="20dp"
+    android:layout_height="wrap_content"
+    android:padding="6dp"
+    android:background="@color/tarabicablue"    
+    >
+    <TextView
+       android:id="@+id/MagnitudeView"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textSize="12dip"
+       android:textColor="@color/white"
+       android:gravity="center"
+       local:MvxBind="Text Magnitude"
+        />
+  </LinearLayout>
+  <LinearLayout
+    android:id="@+id/RightPanel"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingTop="4dp"
+    android:background="@color/black"    
+    >
+    <TextView
+          android:id="@+id/RegionView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:paddingLeft="10dp"
+          android:textSize="14dip"
+          android:textColor="@color/white"
+          local:MvxBind="Text Region"
+          />
+    <TextView
+        android:id="@+id/DateTimeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:textSize="14dip"
+        android:textColor="@color/icongrey"
+        local:MvxBind="Text DateTime"
+          />
+  </LinearLayout>
+</LinearLayout>

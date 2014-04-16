@@ -62,7 +62,7 @@ namespace Example.Core.ViewModels
                     var earthquakeGroupViewModel = new EarthquakeGroupViewModel(group);
                     foreach (var item in items)
                     {
-                        earthquakeGroupViewModel.Items.Add(new EarthquakeItemViewModel(item));
+                        earthquakeGroupViewModel.Add(new EarthquakeItemViewModel(item));
                     }
                     earthquakeGroups.Add(earthquakeGroupViewModel);
                 }
