@@ -15,7 +15,9 @@ Currently this SDK only contains support for the Consumer aspects of the SODA AP
 
 ### Examples
 
-Currently only Universal app ( Windows 8.1 / Windows Phone 8.1 ) example is provided but Android and Windows Phone 8 are coming soon. 
+Examples are provided for:
+- Universal app ( Windows 8.1 / Windows Phone 8.1 )
+- Android
 
 ### Build from sources
 
